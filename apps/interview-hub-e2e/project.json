@@ -1,0 +1,9 @@
+{
+  "name": "interview-hub-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/interview-hub-e2e/src",
+  "implicitDependencies": ["interview-hub"],
+  "// targets": "to see all targets run: nx show project interview-hub-e2e --web",
+  "targets": {}
+}

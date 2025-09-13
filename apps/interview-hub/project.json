@@ -1,0 +1,43 @@
+{
+  "name": "interview-hub",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/interview-hub/src",
+  "tags": [],
+  "targets": {
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "interview-hub:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "interview-hub:build",
+        "port": 4200,
+        "spa": true
+      }
+    },
+    "serve-ssr": {
+      "continuous": true,
+      "executor": "@angular-devkit/build-angular:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "interview-hub:build:development",
+          "serverTarget": "interview-hub:server:development"
+        },
+        "production": {
+          "browserTarget": "interview-hub:build:production",
+          "serverTarget": "interview-hub:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    }
+  }
+}
