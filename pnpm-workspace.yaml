@@ -1,2 +1,4 @@
 autoInstallPeers: true
+onlyBuiltDependencies:
+  - '@nx/angular-rspack-compiler'
 strictPeerDependencies: false

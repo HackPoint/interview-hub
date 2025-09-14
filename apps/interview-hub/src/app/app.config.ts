@@ -1,9 +1,14 @@
 import {
   ApplicationConfig,
+  isDevMode,
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  PreloadAllModules,
+  provideRouter,
+  withPreloading,
+} from '@angular/router';
 import { appRoutes } from './app.routes';
 import {
   provideClientHydration,
@@ -15,6 +20,10 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(appRoutes),
+    provideRouter(appRoutes, withPreloading(PreloadAllModules)),
+    // { provide: API_URL, useValue: 'https://jsonplaceholder.typicode.com' },
+    // { provide: AUTH_URL, useValue: 'https://reqres.in/api' },
+    // { provide: FEATURE_FLAGS, useValue: { cacheHttp: true, zoneless: false, showWidgets: true } },
+    // { provide: LOGGER, useValue: consoleLogger(isDevMode()) }
   ],
 };

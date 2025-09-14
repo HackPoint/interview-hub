@@ -1,1 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* You can add global styles to this file, and also import other style files */
+@layer components {
+  .panel { @apply bg-panel/80 border border-border/80 rounded-xl2 shadow-elev-1; }
+  .card  { @apply bg-card/70  border border-border/70  rounded-xl2 shadow-elev-1; }
+  .pill  { @apply text-xs text-muted border border-border rounded-full px-2 py-0.5; }
+  .tag   { @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs border-border bg-panel/60; }
+  .muted { @apply text-muted; }
+  .avatar { @apply size-9 rounded-full object-cover border border-border; }
+  .divider { @apply h-px bg-border/80 my-4; }
+  .btn { @apply inline-flex items-center gap-2 rounded-xl2 border px-3 py-2 transition; }
+  .btn-primary { @apply btn bg-primary/90 border-primary/40 hover:bg-primary text-base text-card; }
+  .btn-ghost { @apply btn bg-transparent border-border hover:bg-panel/50; }
+  .btn-outline { @apply btn border-border hover:border-primary/50 hover:text-primary; }
+  .state { @apply text-[11px] text-muted border border-border rounded-md px-2 py-1; }
+  .virtual { @apply h-[420px] overflow-auto p-2 bg-panel/60 border border-border rounded-xl2; }
+  .skeleton { @apply relative overflow-hidden rounded-xl2 border border-border bg-[#0f172a] min-h-20; }
+  .skeleton::after { content:""; @apply absolute inset-0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent); animation: shimmer 1.2s infinite; }
+  .sentinel { @apply grid place-items-center h-11 rounded-full border border-primary/40 text-primary bg-primary/10; }
+  .input { @apply bg-card border border-border rounded-xl2 px-3 py-2 text-ink outline-none focus:border-primary/60; }
+}
