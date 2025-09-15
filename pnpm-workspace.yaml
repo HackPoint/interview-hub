@@ -1,4 +1,13 @@
 autoInstallPeers: true
+
 onlyBuiltDependencies:
   - '@nx/angular-rspack-compiler'
+  - '@parcel/watcher'
+  - '@swc/core'
+  - core-js
+  - esbuild
+  - lmdb
+  - msgpackr-extract
+  - nx
+
 strictPeerDependencies: false

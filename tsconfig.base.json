@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ih/core/layout/shell": ["libs/core/layout/shell/src/index.ts"]
+      "@ih/core/layout/shell": ["libs/core/layout/shell/src/index.ts"],
+      "@ih/core/platform": ["libs/core/platform/src/index.ts"],
+      "@ih/features": ["libs/features/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

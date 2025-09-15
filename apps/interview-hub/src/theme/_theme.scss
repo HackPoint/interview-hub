@@ -1,0 +1,55 @@
+// _theme.scss — Tailwind-friendly SCSS helpers for Nx + Rsbuild
+// Use inside your Angular app; this file is not compiled in the standalone HTML preview.
+// 1) Import AFTER Tailwind base/components/utilities or in a dedicated global styles entry.
+
+// Design tokens
+$bg:       #0b0e13;
+$panel:    #101522;
+$card:     #131a2b;
+$ink:      #e6ebff;
+$muted:    #9aa8c7;
+$primary:  #7aa2ff;
+$success:  #34d399;
+$warn:     #fbbf24;
+$danger:   #fb7185;
+$border:   #25314d;
+$radius:   14px;
+$shadow:   0 10px 30px rgba(0,0,0,.35);
+
+// Utilities
+%panel { background:$panel; border:1px solid $border; border-radius:$radius; box-shadow:$shadow; }
+%card  { background:$card;  border:1px solid $border; border-radius:$radius; box-shadow:$shadow; }
+
+// Components
+.app-shell { min-height:100vh; display:grid; grid-template-rows:auto 1fr; background:$bg; color:$ink; }
+.appbar { position:sticky; top:0; z-index:20; backdrop-filter:blur(8px); border-bottom:1px solid $border; background:color-mix(in oklab, $panel 80%, transparent); }
+.grid-app { display:grid; gap:1rem; padding:1rem; grid-template-columns: 280px 1fr; }
+
+.panel { @extend %panel; }
+.card  { @extend %card; }
+
+.input {
+  background: #0f1524;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: .6rem .8rem;
+  color: $ink;
+  outline: none;
+  &:focus { border-color: color-mix(in oklab, $primary 60%, $border); }
+  &.valid   { border-color: rgba($success, .6); }
+  &.invalid { border-color: rgba($danger,  .8); }
+}
+
+.tag {
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.2rem .6rem; border-radius:999px;
+  border:1px solid color-mix(in oklab, $primary 35%, transparent);
+  background: color-mix(in oklab, $primary 12%, transparent);
+}
+
+.badge-success { border:1px solid rgba($success,.3); color:$success; background: rgba($success,.1); border-radius:999px; padding:.2rem .5rem; font-size:.8rem; }
+
+// Keyframes
+@keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+@keyframes fade { 0%{opacity:0; transform:translateY(6px)} 100%{opacity:1; transform:none} }
+@keyframes pulseSoft { 0%,100%{opacity:1} 50%{opacity:.6} }

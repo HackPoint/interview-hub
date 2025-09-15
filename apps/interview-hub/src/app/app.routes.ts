@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'feed' },
-  // {
-  //   path: 'login',
-  //   loadComponent: () => import('./features/auth/login-form.component').then(m => m.LoginFormComponent),
-  // },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  {
+    path: 'login',
+    loadComponent: () => import('@ih/features').then(m => m.LoginPage),
+  },
   // {
   //   path: 'feed',
   //   loadComponent: () => import('./features/feed/feed.page').then(m => m.FeedPageComponent),
@@ -20,5 +20,5 @@ export const appRoutes: Routes = [
   //   canMatch: [() => import('./core/guards/feature-match.guard').then(m => m.featureMatchGuard)],
   //   loadComponent: () => import('./features/admin/admin.panel').then(m => m.AdminPanelComponent),
   // },
-  { path: '**', redirectTo: 'feed' }
+  { path: '**', redirectTo: 'login' }
 ];

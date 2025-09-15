@@ -62,7 +62,9 @@ export default createConfig(
         extractLicenses: false,
         sourceMap: true,
         namedChunks: true,
-        devServer: {},
+
+        devServer: {
+        },
         prerender: {
           discoverRoutes: true,
           routes: [],
